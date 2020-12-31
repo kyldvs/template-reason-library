@@ -73,3 +73,5 @@ function hello_world_rename() {
   echo "  - Check the changes, then commit if everything looks good"
   echo ""
 };
+
+hello_world_rename "$@"
