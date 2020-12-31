@@ -17,7 +17,7 @@ function relevant_files() {
     | grep -v '__snapshots__'
 }
 
-function hello_world_rename() {
+function rename_template() {
   if [ -z "$1" ]; then
     print_err "Two arguments required, the 'old_name' and the 'new_name'. No arguments were provided."
     return 1
@@ -74,4 +74,4 @@ function hello_world_rename() {
   echo ""
 };
 
-hello_world_rename "$@"
+rename_template "$@"
