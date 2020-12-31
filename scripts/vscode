@@ -5,8 +5,6 @@ DIR="$(cd "$(dirname "$0")" && pwd)"
 
 source "$DIR/bash_utils"
 
-
-
 function setup_vscode_settings() {
   PROJECT_ROOT=$(absolute_path "$DIR/..")
   VS_CODE_DIR="$PROJECT_ROOT/.vscode"
