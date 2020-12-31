@@ -1,0 +1,47 @@
+#!/bin/bash
+
+# This will be the location of this script.
+DIR="$(cd "$(dirname "$0")" && pwd)"
+
+alias print_err=">&2 echo Error: "
+
+function title_case() {
+  if [ -z "$1" ]; then
+    print_err "One argument required, the 'snake_case' name to convert to 'TitleCase'. No arguments were provided."
+    return 1
+  fi
+
+  if [ -n "$2" ]; then
+    print_err "One argument required, the 'snake_case' name to convert to 'TitleCase'. Too many arguments were provided."
+    return 1
+  fi
+
+  # https://unix.stackexchange.com/a/196291
+  SNAKE_CASE=$1
+  ARR=(${SNAKE_CASE//_/ })
+  printf %s "${ARR[@]^}"
+};
+
+function hello_world_rename() {
+  if [ -z "$1" ]; then
+    print_err "Two arguments required, the 'old_name' and the 'new_name'. No arguments were provided."
+    return 1
+  fi
+
+  if [ -z "$2" ]; then
+    print_err "Two arguments required, the 'old_name' and the 'new_name'. One argument was provided."
+    return 1
+  fi
+
+  if [ -n "$3" ]; then
+    print_err "Two arguments required, the 'old_name' and the 'new_name'. Too many arguments were provided."
+    return 1
+  fi
+
+  OLD_SNAKE_CASE=$1
+  NEW_SNAKE_CASE=$2
+  OLD_TITLE_CASE=$(title_case $OLD_SNAKE_CASE)
+  NEW_TITLE_CASE=$(title_case $NEW_SNAKE_CASE)
+};
+
+( git status --short| grep '^?' | cut -d\  -f2- && git ls-files ) | sort -u | ( xargs -d '\n' -- stat -c%n 2>/dev/null  ||: )

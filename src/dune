@@ -1,0 +1,8 @@
+(library
+  (name HelloWorld)
+  (public_name hello_world)
+  (ocamlopt_flags -w -9-27)
+  (ocamlc_flags -w -9-27)
+  (libraries)
+)
+(include_subdirs unqualified)
