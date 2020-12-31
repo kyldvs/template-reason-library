@@ -2,12 +2,27 @@
 
 This is a Reason library.
 
+## Template Init
+
+After copying this template a convenience script is included to update all
+appropriate filenames and contents for a new library name.
+
+- The script accepts two arguments: old_name, new_name
+- The arguments should be in snake_case, they are converted to TitleCase within
+  the script when required.
+
+```bash
+scripts/rename hello_world my_library
+```
+
+- Remove this section from the readme after completing the rename.
+
 ## Install `esy`
 
 Globally install [`esy`](https://www.npmjs.com/package/esy) so that the `esy`
 command is available in the terminal.
 
-```
+```bash
 npm install -g esy
 ```
 
