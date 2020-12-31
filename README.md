@@ -4,18 +4,16 @@ This is a Reason library.
 
 ## Template Init
 
-After copying this template a convenience script is included to update all
-appropriate filenames and contents for a new library name.
+There are two convenience scripts to initialize this repo:
 
-- The script accepts two arguments: old_name, new_name
-- The arguments should be in snake_case, they are converted to TitleCase within
-  the script when required.
+- `scripts/rename hello_world my_library`
+  - This updates appropriate filenames and contents to use "my_library" as the name.
+  - Arguments should be snake_case, they will be converted to other forms where appropriate.
+- `scripts/vscode`
+  - This sets up editor support for the [OCaml Platform](https://marketplace.visualstudio.com/items?itemName=ocamllabs.ocaml-platform) extension by creating `.vscode/settings.json`.
+  - This can be done manually or inside VS Code, but I find this easier.
 
-```bash
-scripts/rename hello_world my_library
-```
-
-- Remove this section from the readme after completing the rename.
+_Remove this section from the readme after completing the initialization._
 
 ## Install `esy`
 
