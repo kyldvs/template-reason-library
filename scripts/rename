@@ -43,6 +43,14 @@ function rename_template() {
     return 1
   fi
 
+  # Check that rename is installed.
+  if command -v rename > /dev/null; then
+    :
+  else
+    print_err "Install the \"rename\" command before running this script (Check by running 'command -v rename')"
+    return 1
+  fi
+
   OLD_SNAKE_CASE=$1
   NEW_SNAKE_CASE=$2
   OLD_TITLE_CASE=$(title_case $OLD_SNAKE_CASE)
@@ -69,7 +77,7 @@ function rename_template() {
   echo "${GREEN}Done!${RESET}"
   echo ""
   echo "  - Rebuild with ${BOLD}esy && esy @test${RESET}"
-  echo "  - Run tests with ${BOLD}esy test${RESET}"
+  echo "  - Run tests with ${BOLD}esy test -y${RESET}"
   echo "  - Check the changes, then commit if everything looks good"
   echo ""
 };
