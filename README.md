@@ -1,6 +1,6 @@
-# `template-reason-library`
+# `hello_world`
 
-Template for building a Reason library.
+This is a Reason library.
 
 ## Install `esy`
 
@@ -21,7 +21,7 @@ esy
 
 _This is a combination of `esy install` and `esy build`_
 
-## Run tests for `Hello.re`
+## Run tests for `HelloWorld.re`
 
 ```bash
 esy test

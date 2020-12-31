@@ -11,7 +11,7 @@
 {
   "ocaml.sandbox": {
     "kind": "esy",
-    "root": "/path/to/hello-reason-minimal"
+    "root": "/path/to/this-repository"
   }
 }
 ```
@@ -132,4 +132,4 @@ Overall the file might look like:
 }
 ```
 
-- Test this works by adding `1 / 0;` to `Hello.re` and ensuring the stack trace is printed.
+- Test this works by adding `1 / 0;` to a reason file and ensuring the stack trace is printed.
