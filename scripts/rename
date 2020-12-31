@@ -33,12 +33,13 @@ function hello_world_rename() {
     return 1
   fi
 
+  # https://unix.stackexchange.com/a/155077
   if [ -z "$(git status --porcelain)" ]; then
     # Working directory clean
     :
   else
     # Uncommitted changes
-    print_err "There are uncommitted changes. Commit or stash them before running this command."
+    print_err "There are uncommitted changes. Commit or stash them before running this script."
     return 1
   fi
 
@@ -59,8 +60,16 @@ function hello_world_rename() {
   prompt_continue
 
   relevant_files | while read x; do
-    echo $x;
+    sed -i "s/$OLD_SNAKE_CASE/$NEW_SNAKE_CASE/g" "$x"
+    sed -i "s/$OLD_TITLE_CASE/$NEW_TITLE_CASE/g" "$x"
+    rename "s/$OLD_SNAKE_CASE/$NEW_SNAKE_CASE/g" "$x"
+    rename "s/$OLD_TITLE_CASE/$NEW_TITLE_CASE/g" "$x"
   done
-};
 
-hello_world_rename hello_world butter
+  echo "${GREEN}Done!${RESET}"
+  echo ""
+  echo "  - Rebuild with ${BOLD}esy && esy @test${RESET}"
+  echo "  - Run tests with ${BOLD}esy test${RESET}"
+  echo "  - Check the changes, then commit if everything looks good"
+  echo ""
+};
